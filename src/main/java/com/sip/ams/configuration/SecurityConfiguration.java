@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
-               // .antMatchers("/").permitAll() // accès pour tous users
+                .antMatchers("/").permitAll() // accès pour tous users
                 .antMatchers("/login").permitAll() // accès pour tous users
                 .antMatchers("/registration").permitAll() // accès pour tous users
                 
@@ -52,17 +52,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // route de deconnexion ici /logut
-                .logoutSuccessUrl("/login").and().exceptionHandling() // une fois deconnecté redirection vers login
+                .logoutSuccessUrl("/").and().exceptionHandling(); // une fois deconnecté redirection vers login
                 
-                .accessDeniedPage("/403"); 
+                //.accessDeniedPage("/403"); 
     }
 
    // laisser l'accès aux ressources
+    
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+                .antMatchers("/resources/**","/front/**","/back/**", "/static/**", "/css/**", "/js/**", "/images/**");
     }
 
 }
