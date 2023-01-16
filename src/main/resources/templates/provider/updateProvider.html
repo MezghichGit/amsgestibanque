@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<div th:replace="fragments/header :: header" />
+</head>
+
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<div th:replace="fragments/sidebar :: sidebar" />
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<div th:replace="fragments/navbar :: navbar" />
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">Update Provider</h1>
+
+					</div>
+
+					<!-- Content Row -->
+					<div class="row">
+
+
+ <div class="container my-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-12">
+                    <form action="#" th:action="@{/provider/update}" th:object="${provider}" method="post">
+                        
+                        <input type="hidden" th:field="*{id}" />
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="name" class="col-form-label">Name</label> <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name"> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="email" class="col-form-label">Email</label> <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email"> <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="address" class="col-form-label">Address</label> <input type="text" th:field="*{address}" class="form-control" id="address" placeholder="address"> <span th:if="${#fields.hasErrors('address')}" th:errors="address" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group col-md-12">
+                                <input type="submit" class="btn btn-primary" value="Update Provider">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+					</div>
+
+
+
+
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<div th:replace="fragments/footer :: footer" />
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top">
+		<i class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div th:replace="fragments/logoutmodal :: logoutmodal" />
+
+	<!-- Bootstrap core JavaScript-->
+	<script th:src="@{/back/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/back/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script th:src="@{/back/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script th:src="@{/back/js/sb-admin-2.min.js}"></script>
+
+	<!-- Page level plugins -->
+	<script th:src="@{/back/vendor/chart.js/Chart.min.js}"></script>
+
+	<!-- Page level custom scripts -->
+	<script th:src="@{/back/js/demo/chart-area-demo.js}"></script>
+	<script th:src="@{/back/js/demo/chart-pie-demo.js}"></script>
+
+</body>
+
+</html>
