@@ -27,10 +27,10 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-    public void saveUser(User user) {
+    public void saveUser(User user, String role, int active) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(0);
-        Role userRole = roleRepository.findByRole("USER");
+        user.setActive(active);
+        Role userRole = roleRepository.findByRole(role);
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
     }

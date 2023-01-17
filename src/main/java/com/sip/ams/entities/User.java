@@ -8,7 +8,12 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 public class User {
-    @Id
+    @Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", lastName="
+				+ lastName + ", active=" + active + ", roles=" + roles + "]";
+	}
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private int id;

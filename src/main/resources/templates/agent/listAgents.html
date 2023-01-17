@@ -26,56 +26,47 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">Liste de nos providers</h1>
+					<h1 class="h3 mb-2 text-gray-800">Liste des agents</h1>
 					
-					 <div th:switch="${providers}">
-					<p class="mb-4">Pour ajouter un nouveau provider cliquer ici <a class="btn btn-primary"
+					 <div th:switch="${agents}">
+					<p class="mb-4">Pour ajouter un nouvel agent cliquer ici <a class="btn btn-primary"
 							th:href="@{add}">Ajouter</a></p>
 
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Providers</h6>
+							<h6 class="m-0 font-weight-bold text-primary">AMS Agents</h6>
 						</div>
-						<h2 th:case="null">No Providers yet!</h2>
+						<h2 th:case="null">No Agent yet!</h2>
 						<div th:case="*">
+						<h2>Nombre total des agents = <span th:text="${nbr}">10</span></h2>
 						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 									<thead>
 										<tr>
-											<th>Name</th>
-											<th>Email</th>
-											<th>Address</th>
-											<th>Logo</th>
-											<th>Update</th>
-											<th>Delete</th>
+											<th>ID</th>
+										    <th>First Name</th>
+										    <th>Last Name</th>
+										    <th>Email</th>
+
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
-											<th>Name</th>
-											<th>Email</th>
-											<th>Address</th>
-											<th>Logo</th>
-											<th>Update</th>
-											<th>Delete</th>
+											<th>ID</th>
+										    <th>First Name</th>
+										    <th>Last Name</th>
+										    <th>Email</th>
 										</tr>
 									</tfoot>
 									<tbody>
-										<tr>
-										<tr th:each="provider : ${providers}">
-											<td th:text="${provider.name}"></td>
-											<td th:text="${provider.email}"></td>
-											<td th:text="${provider.address}"></td>
-											<td>Logo fournisseurs</td>
-											<td><a th:href="@{/provider/edit/{id}(id=${provider.id})}"
-													class="btn btn-warning"><i class="fas fa-user-edit ml-2"></i></a>
-											</td>
-											<td><a th:href="@{/provider/delete/{id}(id=${provider.id})}"
-													class="btn btn-danger"><i class="fas fa-user-times ml-2"></i></a>
-											</td>
-										</tr>
+									 <tr th:each="agent : ${agents}">
+										<td th:text="${agent.id}"></td>
+										<td th:text="${agent.name}"></td>
+										<td th:text="${agent.lastName}"></td>
+										<td th:text="${agent.email}"></td>
+									 </tr>
 									</tbody>
 								</table>
 							</div>
@@ -103,8 +94,6 @@
 	<a class="scroll-to-top rounded" href="#page-top">
 		<i class="fas fa-angle-up"></i>
 	</a>
-
-
 	<!-- Bootstrap core JavaScript-->
 	<script th:src="@{/back/vendor/jquery/jquery.min.js}"></script>
 	<script th:src="@{/back/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>

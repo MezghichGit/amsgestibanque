@@ -9,7 +9,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin <sup>GK</sup></div>
+                <div class="sidebar-brand-text mx-3"><span sec:authentication="principal.authorities"><sup>GK</sup></div>
             </a>
 
             <!-- Divider -->
@@ -59,8 +59,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Agent GK</h6>
-                        <a class="collapse-item" href="utilities-color.html">Ajouter</a>
-                        <a class="collapse-item" href="utilities-border.html">Liste</a>
+                        <a class="collapse-item" th:href="@{agent/add}">Ajouter</a>
+                        <a class="collapse-item" th:href="@{agent/list}">Liste</a>
                      </div>
                 </div>
             </li>
