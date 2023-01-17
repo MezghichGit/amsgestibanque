@@ -69,7 +69,8 @@ public class DashbordController {
         return "/error/403";
     }*/
 
-
+//sip2023amine
+    //sipmezghich2023@gmail.com
 	    @GetMapping("/")
 	    public String accueil(Model model) {
 	        return "dashboard/index";  
@@ -78,23 +79,23 @@ public class DashbordController {
 	    @GetMapping("/dashboard")
 	    public String dashbaord(Model model) {
 	    	
-	    	 String path="dashboard/";
+	 
 	    	 //1-Récuparation de la session du user Connecté <<Authentication>>
 	    	 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	         //2-Récupéartion du User
 	    	 User user = userService.findUserByEmail(auth.getName());
 	         
-	         System.out.println(user);
+	         //System.out.println(user.toString());
 	         model.addAttribute("user", user);
 	         //3-Récupération des roles du user
 	         Set<Role> userRoles = user.getRoles();
 	         //4-Conversion du set vers tableau pour la récupération du premier role
 	         Object roles[] = userRoles.toArray();
-	         System.out.println(roles[0].toString()); // On suppose qu'on a un seul role par user
+	         //System.out.println(roles[0].toString()); // On suppose qu'on a un seul role par user
 	         //5-Récupéation du rôle : userRole
 	         Role role = (Role)roles[0];
 	         String userRole = role.getRole();
-	         System.out.println(userRole);
+	         //System.out.println(userRole);
 	         
 	         
 	         switch(userRole) {

@@ -23,10 +23,20 @@ import java.util.List;
 import java.util.Set;
 
 import javax.validation.Valid;
+
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import javax.mail.MessagingException;
+import java.io.IOException;
+
 @Controller
 @RequestMapping("/agent/")
 
 public class AgentController {
+	
+	@Autowired
+    private JavaMailSender javaMailSender;
+
 	
 	@Autowired
     private UserService userService;
@@ -79,8 +89,36 @@ public class AgentController {
             return "agent/addAgent";
         }
         userService.saveUser(user,"AGENT",1);
+        sendEmail("amine.mezghich@gmail.com", true,user.getName()+" "+user.getLastName());
+        
+        // envoyer un email à l'agent
         return "redirect:list";
     }
+    
+    void sendEmail(String email, boolean state, String nomComplet) {
+
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setTo(email);
+        if(state == true)
+        {
+        msg.setSubject("Account Has Been Activated");
+        msg.setText("Hello, "+ nomComplet +" Your account has been activated. "
+        		+ 
+        		"You can log in : http://127.0.0.1:81/login"
+        		+ " \n Best Regards!");
+        }
+        else
+        {
+        	msg.setSubject("Account Has Been disactivated");
+            msg.setText("Hello, Your account has been disactivated.");
+        }
+        javaMailSender.send(msg);
+
+    }
+	
+    
+
+
 
     /*
     @GetMapping("delete/{id}")
