@@ -1,122 +1,138 @@
+<div th:fragment="sidebar">
+	<!-- Sidebar -->
+	<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-	
-	<div th:fragment="sidebar">
-		 <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+		<!-- Sidebar - Brand -->
+		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+			<div class="sidebar-brand-icon rotate-n-15">
+				<i class="fas fa-laugh-wink"></i>
+			</div>
+			<div class="sidebar-brand-text mx-3"><span sec:authentication="principal.authorities"><sup>GK</sup></div>
+		</a>
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3"><span sec:authentication="principal.authorities"><sup>GK</sup></div>
-            </a>
+		<!-- Divider -->
+		<hr class="sidebar-divider my-0">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+		<!-- Nav Item - Dashboard -->
+		<li class="nav-item active">
+			<a class="nav-link" href="index.html">
+				<i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Dashboard</span></a>
+		</li>
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+		<!-- Divider -->
+		<hr class="sidebar-divider">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Gestion du front</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Configuration du front</h6>
-                        <a class="collapse-item" href="#">Services</a>
-                        <a class="collapse-item" href="#">Actualités</a>
-                        <a class="collapse-item" href="#">Messages</a>
-                        <a class="collapse-item" href="#">Configuration</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesAgent"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Gestion  Agents</span>
-                </a>
-                <div id="collapseUtilitiesAgent" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Agent GK</h6>
-                        <a class="collapse-item" th:href="@{agent/add}">Ajouter</a>
-                        <a class="collapse-item" th:href="@{agent/list}">Liste</a>
-                     </div>
-                </div>
-            </li>
-            
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesProvider"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Gestion  Provider</span>
-                </a>
-                <div id="collapseUtilitiesProvider" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Provider GK</h6>
-                        <a class="collapse-item" th:href="@{/provider/add}">Ajouter</a>
-                        <a class="collapse-item" th:href="@{/provider/list}">Liste</a>
-                     </div>
-                </div>
-            </li>
-            
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesArticle"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Gestion  Article</span>
-                </a>
-                <div id="collapseUtilitiesArticle" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Articles GK</h6>
-                        <a class="collapse-item" th:href="@{/article/add}">Ajouter</a>
-                        <a class="collapse-item" th:href="@{/article/list}">Liste</a>
-                     </div>
-                </div>
-            </li>
-            
-              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesRole"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Gestion  Roles</span>
-                </a>
-                <div id="collapseUtilitiesRole" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Roles GK</h6>
-                        <a class="collapse-item" th:href="@{/role/add}">Ajouter</a>
-                        <a class="collapse-item" th:href="@{/role/list}">Liste</a>
-                     </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-
-        </ul>
-        <!-- End of Sidebar -->
+		<!-- Heading -->
+		<div class="sidebar-heading">
+			Interface
 		</div>
+
+		<!-- Nav Item - Pages Collapse Menu -->
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+				aria-expanded="true" aria-controls="collapseTwo">
+				<i class="fas fa-fw fa-cog"></i>
+				<span>Gestion du front</span>
+			</a>
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Configuration du front</h6>
+					<a class="collapse-item" href="#">Services</a>
+					<a class="collapse-item" href="#">Actualités</a>
+					<a class="collapse-item" href="#">Messages</a>
+					<a class="collapse-item" href="#">Configuration</a>
+				</div>
+			</div>
+		</li>
+
+
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesArticle"
+				aria-expanded="true" aria-controls="collapseUtilities">
+				<i class="fas fa-fw fa-wrench"></i>
+				<span>Gestion inscriptions</span>
+			</a>
+			<div id="collapseUtilitiesArticle" class="collapse" aria-labelledby="headingUtilities"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Inscriptions</h6>
+					<a class="collapse-item" th:href="@{/affectation/encours}">En cours</a>
+					<a class="collapse-item" th:href="@{/article/list}">Traitée</a>
+				</div>
+			</div>
+		</li>
+
+
+		<!-- Nav Item - Utilities Collapse Menu -->
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesAgent"
+				aria-expanded="true" aria-controls="collapseUtilities">
+				<i class="fas fa-fw fa-wrench"></i>
+				<span>Gestion Agents</span>
+			</a>
+			<div id="collapseUtilitiesAgent" class="collapse" aria-labelledby="headingUtilities"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Agent GK</h6>
+					<a class="collapse-item" th:href="@{agent/add}">Ajouter</a>
+					<a class="collapse-item" th:href="@{agent/list}">Liste</a>
+				</div>
+			</div>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesProvider"
+				aria-expanded="true" aria-controls="collapseUtilities">
+				<i class="fas fa-fw fa-wrench"></i>
+				<span>Gestion Provider</span>
+			</a>
+			<div id="collapseUtilitiesProvider" class="collapse" aria-labelledby="headingUtilities"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Provider GK</h6>
+					<a class="collapse-item" th:href="@{/provider/add}">Ajouter</a>
+					<a class="collapse-item" th:href="@{/provider/list}">Liste</a>
+				</div>
+			</div>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesArticle"
+				aria-expanded="true" aria-controls="collapseUtilities">
+				<i class="fas fa-fw fa-wrench"></i>
+				<span>Gestion Article</span>
+			</a>
+			<div id="collapseUtilitiesArticle" class="collapse" aria-labelledby="headingUtilities"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Articles GK</h6>
+					<a class="collapse-item" th:href="@{/article/add}">Ajouter</a>
+					<a class="collapse-item" th:href="@{/article/list}">Liste</a>
+				</div>
+			</div>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesRole"
+				aria-expanded="true" aria-controls="collapseUtilities">
+				<i class="fas fa-fw fa-wrench"></i>
+				<span>Gestion Roles</span>
+			</a>
+			<div id="collapseUtilitiesRole" class="collapse" aria-labelledby="headingUtilities"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Roles GK</h6>
+					<a class="collapse-item" th:href="@{/role/add}">Ajouter</a>
+					<a class="collapse-item" th:href="@{/role/list}">Liste</a>
+				</div>
+			</div>
+		</li>
+
+		<!-- Divider -->
+		<hr class="sidebar-divider">
+
+
+	</ul>
+	<!-- End of Sidebar -->
+</div>

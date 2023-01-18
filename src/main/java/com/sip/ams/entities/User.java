@@ -8,10 +8,11 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 public class User {
-    @Override
+ 
+	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", lastName="
-				+ lastName + ", active=" + active + ", roles=" + roles + "]";
+				+ lastName + ", address=" + address + ", active=" + active + ", roles=" + roles + "]";
 	}
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,7 +36,18 @@ public class User {
     @NotEmpty(message = "*Please provide your last name")
     private String lastName;
     
-    @Column(name = "active")
+    @Column(name = "address")
+    @NotEmpty(message = "*Please provide your address")
+    private String address;
+    
+    
+    public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	@Column(name = "active")
     private int active;
     
     @ManyToMany(cascade = CascadeType.ALL)
