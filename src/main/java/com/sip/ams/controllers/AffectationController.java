@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -123,6 +124,21 @@ public class AffectationController {
         model.addAttribute("clients", usersAgent);
         return "affectation/usersByAgent";
 
+    }
+    
+    @GetMapping("activateAccount/{id}")
+    //@ResponseBody
+    public String activateAccount(@PathVariable("id") int id) {
+    	
+    	Optional<User> user = userRepository.findById(id);
+		if(user.isPresent())
+		{
+			User exitUser = user.get();
+			exitUser.setActive(1);
+			userRepository.save(exitUser);
+		}
+    	
+    	return "redirect:../agent";
     }
     
     public List<User> getUsersByRole(String role)
