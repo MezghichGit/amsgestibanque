@@ -9,17 +9,30 @@ import java.util.Set;
 @Table(name = "user")
 public class User {
  
-	@Override
+	
+	/*@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", lastName="
-				+ lastName + ", address=" + address + ", active=" + active + ", roles=" + roles + "]";
-	}
+		return "User [id=" + id + ", idAgent=" + idAgent + ", email=" + email + ", password=" + password + ", name="
+				+ name + ", lastName=" + lastName + ", address=" + address + ", active=" + active + ", roles=" + roles
+				+ "]";
+	}*/
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private int id;
+	
+	/*
+	@Column(name = "idAgent")
+    private int idAgent;
     
-    @Column(name = "email")
+    public int getIdAgent() {
+		return idAgent;
+	}
+	public void setIdAgent(int idAgent) {
+		this.idAgent = idAgent;
+	}*/
+	
+	@Column(name = "email")
     @Email(message = "*Please provide a valid Email")
     @NotEmpty(message = "*Please provide an email")
     private String email;
