@@ -3,6 +3,7 @@ package com.sip.ams.controllers;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.validation.Valid;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sip.ams.entities.Affectation;
 import com.sip.ams.entities.Provider;
@@ -37,6 +39,7 @@ public class AffectationController {
 	
 	@Autowired
 	AffectationRepository affectationRepository;
+	
 	
     @GetMapping("encours")
     //@ResponseBody
@@ -81,6 +84,45 @@ public class AffectationController {
         
         // envoyer un email vers l'agent correspondant pour lui dire qu'il a une demande à valider
         return "redirect:encours";
+    }
+    
+    @GetMapping("agent")
+    //@ResponseBody
+    public String listClientByAgent(Model model) {
+    	
+    	//1-Récuparation de la session du user Connecté <<Authentication>>
+   	 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        //2-Récupéartion du User
+   	 	User agentEnCours = userService.findUserByEmail(auth.getName());
+   	 
+    	
+		List<Affectation> laf = affectationRepository.findAffectationByAgent(agentEnCours.getId());
+		List<User> usersAgent = new ArrayList<>();
+		
+		for(Affectation affectation : laf)
+		{
+			//System.out.println(affectation.getIdClient());
+			
+			Optional<User> user = userRepository.findById(affectation.getIdClient());
+			if(user.isPresent())
+			{
+				usersAgent.add(user.get());
+			}
+			
+		}
+    	
+		System.out.println(usersAgent);
+    	
+    	
+    	if(usersAgent.size()==0)
+    		usersAgent=null;
+    	
+    	
+    	
+    	model.addAttribute("nbr", usersAgent.size());
+        model.addAttribute("clients", usersAgent);
+        return "affectation/usersByAgent";
+
     }
     
     public List<User> getUsersByRole(String role)

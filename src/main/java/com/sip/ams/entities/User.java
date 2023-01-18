@@ -9,13 +9,12 @@ import java.util.Set;
 @Table(name = "user")
 public class User {
  
-	
-	/*@Override
+
+	@Override
 	public String toString() {
-		return "User [id=" + id + ", idAgent=" + idAgent + ", email=" + email + ", password=" + password + ", name="
-				+ name + ", lastName=" + lastName + ", address=" + address + ", active=" + active + ", roles=" + roles
-				+ "]";
-	}*/
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", lastName="
+				+ lastName + ", address=" + address + ", active=" + active + ", roles=" + roles + "]";
+	}
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
